@@ -1,114 +1,118 @@
 package zooAnimales;
+
+import java.util.ArrayList;
 import gestion.Zona;
-//import java.util.*;
 
 public class Animal {
 	private static int totalAnimales;
-	private String nombre;
-	private int edad;
+	private String nombre; 
+	private int edad; 
 	private String habitat;
-	private String genero;
-	private Zona zona;
-
-	public Animal(String nombre, int edad, String habitat, String genero ) {
-		this.genero= genero;
-		this.habitat= habitat;
-		this.edad= edad;
-		this.nombre= nombre;
-		++Animal.totalAnimales;
-	}
+	private String genero; 
+	private static ArrayList<Zona> zona = new ArrayList<Zona>(); 
 	
+	
+	
+	public Animal(String nombre, int edad, String habitat, String genero) {
+		totalAnimales++;
+		this.nombre = nombre;
+		this.edad = edad;
+		this.habitat = habitat;
+		this.genero = genero;
+	}
+
+
 	public Animal() {
-		++totalAnimales;
+		totalAnimales++;
 		
 	}
 	
-	//metodos get 
-	
-	public static int getTotalAnimales() {
-		return(totalAnimales);
-	}
-	
-	public int getEdad() {
-		return(this.edad);
-	}
-	
-	
-	public String getNombre() {
-		return(this.nombre);
-	}
-	
-	public String getHabitat() {
-		return(this.habitat);
-	}
-	
-	public String getGenero() {
-		return(this.genero);
-	
-	}
-	
-	public Zona  getZona() {
-		return(zona);
-	}
-	
-	//metodos sett
-	
-	public static void setTotalAnimales(int totalAnimales) {
-		Animal.totalAnimales= totalAnimales;
-	}
-	
-	public void setNombre(String nombre) {
-		this.nombre= nombre;
-	}
-	
-	public void setEdad(int edad) {
-		this.edad= edad;
-	}
-	
-	public void setHabitat(String habitat) {
-		this.habitat= habitat;
-		
-	}
-	
-	public void setGenero(String genero) {
-		this.genero= genero;
-	}
-	
-	public void setZona(Zona zona) {
-		this.zona= zona;
-	}
-	
-	//metodos de la clase 
-	
-	public static String totalPorTipo () {
-		return "Mamiferos: "+Mamifero.cantidadMamiferos()+"\n" +"Aves: "+Ave.cantidadAves()+"\n" +"Reptiles: "+Reptil.cantidadReptiles()+"\n" + "Peces: "+Pez.cantidadPeces()+"\n"
-				+"Anfibios: "+Anfibio.cantidadAnfibios();
-
-	}
 	
 	public String movimiento() {
 		return "desplazarse";
+		
 	}
-	
+	public static String totalPorTipo() {
+		return "Mamiferos: "+Mamifero.cantidadMamiferos()+
+				"\nAves: "+Ave.cantidadAves()+
+				"\nReptiles: "+Reptil.cantidadReptiles()+
+				"\nPeces: "+Pez.cantidadPeces()+
+				"\nAnfibios: "+Anfibio.cantidadAnfibios(); 
+		
+	}
 	public String toString() {
-		if(this.zona!= null) {
-			return "Mi nombre es "+this.nombre+", tengo una edad de "+this.edad+", habito en "+this.habitat
-					+" y mi genero es "+this.genero+". la zona en la que me ubico es "+this.zona.getnombre()
-					+", en el "+this.zona.getzoo().getNombre();
+		if(zona == null || zona.size() == 0) {
+			return "Mi nombre es "+getNombre()+", tengo una edad de "+getEdad()+", habito en "+getHabitat()+
+					" y mi genero es "+getGenero();
 		}
 		else {
-			return "Mi nombre es "+this.nombre+", tengo una edad de "+this.edad+", habito en "+this.habitat
-					+" y mi genero es "+this.genero;
-		}
+			return "Mi nombre es "+getNombre()+" tengo una edad de "+getEdad()+", habito en "+getHabitat()+
+						" y mi genero es "+getGenero()+", la zona en la que me ubico es "+zona.get(0).getNombre()+
+						", en el zoo "+Zona.getZoo().getNombre();//mis dudas
+			}
+		
 	}
-		
-		
+
+	public int getTotalAnimales() {
+		return totalAnimales;
+	}
+
+
+	//public void setTotalAnimales(int totalAnimales) {
+		//this.totalAnimales = totalAnimales;
+	//}
+
+
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public int getEdad() {
+		return edad;
+	}
+
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+
+	public String getHabitat() {
+		return habitat;
+	}
+
+
+	public void setHabitat(String habitat) {
+		this.habitat = habitat;
+	}
+
+
+	public String getGenero() {
+		return genero;
+	}
+
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+
+	public static ArrayList<Zona> getZona() {
+		return zona;
+	}
+
+
+	public static void setZona(Zona zona) {
+		Animal.zona.add(zona);
+	}
+
 	
 	
-	
+
 }
-	
-
-
-
-
