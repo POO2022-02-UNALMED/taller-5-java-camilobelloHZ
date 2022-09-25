@@ -1,17 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package zooAnimales;
-
-/**
- *
- * @author Roger Vera
- */
-import java.util.ArrayList;
+import java.util.*;
 
 public class Reptil extends Animal{
-    private static ArrayList<Reptil> listado = new ArrayList<Reptil>();
+	private static ArrayList<Reptil> listado = new ArrayList<Reptil>();
     public static int iguanas,serpientes;
     private String colorEscamas;
     private int largoCola;
@@ -71,4 +62,5 @@ public class Reptil extends Animal{
         return new Reptil(nombre,edad,"jungla",genero,"blanco",1);
     
     }
+
 }
