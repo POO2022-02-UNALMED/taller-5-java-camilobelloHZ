@@ -1,64 +1,54 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package gestion;
-
-/**
- *
- * @author Roger Vera
- */
-import java.util.ArrayList;
+import java.util.*;
 import zooAnimales.Animal;
 
 public class Zona {
-    private String nombre;
-    private Zoologico zoo;
-    private ArrayList<Animal> animales = new ArrayList<Animal>();
-    
+	private  String nombre; 
+	private  static ArrayList<Zoologico> zoo= new ArrayList<Zoologico>();
+	private   ArrayList<Animal> animales = new ArrayList<Animal>();
+	
 
-    //constructor
-    public Zona(String nombre, Zoologico zoo){
-        this.nombre = nombre;    
-        this.zoo = zoo;
-}
+	public Zona(String nombre,Zoologico zoo) {
+		this.nombre = nombre;
+		Zona.zoo.add(zoo);
+	}
 
-    //constructor vacio
-    public Zona() {
-    }
-    
-    //getter & setter
-    public String getNombre() {
-        return nombre;
-    }
+	public Zona() {
+		
+	}
+	
+	public void agregarAnimales(Animal animales) {
+		this.animales.add(animales); 
+		
+	}
+	
+	public int cantidadAnimales() {
+		return getAnimales().size();
+	}
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	public String getNombre() {
+		return nombre;
+	}
 
-    public Zoologico getZoo() {
-        return zoo;
-    }
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    public void setZoo(Zoologico zoo) {
-        this.zoo = zoo;
-    }
+	public static Zoologico getZoo() {
+		return Zona.zoo.get(0);
+	}
 
-    public ArrayList<Animal> getAnimales() {
-        return animales;
-    }
+	public static void setZoo(Zoologico zoo) {
+		Zona.zoo.add(zoo);
+	}
 
-    public void setAnimales(ArrayList<Animal> animales) {
-        this.animales = animales;
-    }
-    
-    //metodos
-    public void agregarAnimales(Animal a){
-        this.animales.add(a);
-    }
-    
-    public int cantidadAnimales(){
-        return this.animales.size();
-    }
-    
+	public ArrayList<Animal> getAnimales() {
+		return animales;
+	}
+
+	public void setAnimales(Animal animales) {
+		this.animales.add(animales);
+	}
+
+
 }
