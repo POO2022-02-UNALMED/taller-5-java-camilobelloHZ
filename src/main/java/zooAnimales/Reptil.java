@@ -1,79 +1,74 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package zooAnimales;
-import java.util.*;
+
+/**
+ *
+ * @author Roger Vera
+ */
+import java.util.ArrayList;
 
 public class Reptil extends Animal{
-	private static ArrayList<Reptil> listado= new ArrayList<Reptil>();
-	private static int iguanas;
-	private static int serpientes;
-	private String colorEscamas;
-	private int largoCola;
+    private static ArrayList<Reptil> listado = new ArrayList<Reptil>();
+    public static int iguanas,serpientes;
+    private String colorEscamas;
+    private int largoCola;
+    
+    //constructor 
+    public Reptil(String nombre, int edad, String habitat, String genero,String colorEscamas, int largoCola){    
+        super(nombre, edad, habitat, genero);
+        this.colorEscamas = colorEscamas;
+        this.largoCola = largoCola;
+        listado.add(this);
+    }
 
+    //constructor vacio
+    public Reptil(){    
+        super(null, 0, null, null);
+        this.colorEscamas = null;
+        this.largoCola = 0;
+        listado.add(this);
+    }
+    
+    //getter & setter
 
-//contructores 
-	public Reptil(String nombre, int edad, String habitat, String genero, String colorEscamas, int largoCola){
-		super(nombre, edad, habitat, genero);	
-		this.largoCola= largoCola;
-		this.colorEscamas= colorEscamas;
-		listado.add(this);
-}
+    public String getColorEscamas() {
+        return colorEscamas;
+    }
 
-	public Reptil() {
-		listado.add(this);
-}
+    public void setColorEscamas(String colorEscamas) {
+        this.colorEscamas = colorEscamas;
+    }
 
-//metodos get
-	
-	public String getColorEscamas() {
-		return colorEscamas;
-	}
-	
-	public int getLargoCola() {
-		return largoCola;
-	}
-	
-	public static ArrayList<Reptil> getListado() {
-		return listado;
-	}
-	
-	
-//metodos set
-	
+    public int getLargoCola() {
+        return largoCola;
+    }
 
-	public void setColorEscamas(String colorEscamas) {
-		this.colorEscamas = colorEscamas;
-	}
-	
-
-	public void setLargoCola(int largoCola) {
-		this.largoCola = largoCola;
-	}
-	
-	public static void setListado(Reptil listado) {
-		Reptil.listado.add(listado);
-	}
-	
-	
-	//metodos de la clase 
-	
-	public String movimiento() {
-		return "reptar";
-	}
-	public static Animal crearIguana(String nombre, int edad, String genero) {
-		Reptil iguana = new Reptil(nombre, edad, "humedal", genero, "verde", 3);
-		listado.add(iguana);
-		iguanas +=1;
-		return iguana;
-	}
-	
-	public static int cantidadReptiles() {
-		return listado.size();
-	}
-	
-	public static Animal crearSerpiente(String nombre, int edad, String genero) {
-		Reptil serpiente = new Reptil(nombre, edad, "jungla", genero, "blanco", 1);
-		listado.add(serpiente);
-		serpientes +=1;
-		return serpiente;
-	}
-
+    public void setLargoCola(int largoCola) {
+        this.largoCola = largoCola;
+    }
+    
+    
+    //metodos
+    public static int cantidadReptiles(){
+        return listado.size();
+    }
+    
+    @Override
+    public String movimiento(){
+        return "reptar";
+    }
+    
+    public static Reptil crearIguana(String nombre, int edad, String genero){
+        iguanas++;
+        return new Reptil(nombre,edad,"humedal",genero,"verde",3);
+    }
+    
+    public static Reptil crearSerpiente(String nombre, int edad, String genero){
+        serpientes++;
+        return new Reptil(nombre,edad,"jungla",genero,"blanco",1);
+    
+    }
 }

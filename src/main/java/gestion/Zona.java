@@ -1,65 +1,64 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package gestion;
-import java.util.*;
+
+/**
+ *
+ * @author Roger Vera
+ */
+import java.util.ArrayList;
 import zooAnimales.Animal;
 
 public class Zona {
-	
-	private String nombre;
-	private static ArrayList<Zoologico> zoo= new ArrayList<Zoologico>();
-	private ArrayList<Animal> animales= new ArrayList<Animal>();
+    private String nombre;
+    private Zoologico zoo;
+    private ArrayList<Animal> animales = new ArrayList<Animal>();
+    
 
-
-	//contructores 
-	public Zona(String n, Zoologico z) {
-		Zona.zoo.add(z);
-		this.nombre= n;
-	
-	}	
-	
-	public Zona() {
-		}
-	
-	//metodos set 
-		
-	public void setNombre(String n) {
-		this.nombre= n;
-	}
-		
-	public static void setZoo(Zoologico zoo) {
-		Zona.zoo.add(zoo);
-	}
-	
-	public void setAnimales(Animal animales) {
-		this.animales.add(animales);
-	}
-	
-
-	//metodos get 
-	
-	public String getNombre() {
-		return(this.nombre);
-		
-	}
-	
-	public ArrayList<Animal> getAnimales() {
-		return animales;
-	}
-	
-	public static Zoologico getZoo() {
-		return Zona.zoo.get(0);
-		
-	}
-	
-	//metodos de la clase
-	public int cantidadAnimales() {
-		return getAnimales().size();
-	}	
-	public void agregarAnimales(Animal anim) {
-		this.animales.add(anim);
-	}
-	
-
+    //constructor
+    public Zona(String nombre, Zoologico zoo){
+        this.nombre = nombre;    
+        this.zoo = zoo;
 }
 
+    //constructor vacio
+    public Zona() {
+    }
+    
+    //getter & setter
+    public String getNombre() {
+        return nombre;
+    }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
+    public Zoologico getZoo() {
+        return zoo;
+    }
+
+    public void setZoo(Zoologico zoo) {
+        this.zoo = zoo;
+    }
+
+    public ArrayList<Animal> getAnimales() {
+        return animales;
+    }
+
+    public void setAnimales(ArrayList<Animal> animales) {
+        this.animales = animales;
+    }
+    
+    //metodos
+    public void agregarAnimales(Animal a){
+        this.animales.add(a);
+    }
+    
+    public int cantidadAnimales(){
+        return this.animales.size();
+    }
+    
+}

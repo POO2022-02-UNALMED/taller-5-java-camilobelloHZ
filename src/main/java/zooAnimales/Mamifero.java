@@ -1,92 +1,68 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package zooAnimales;
-import java.util.*;
+
+/**
+ *
+ * @author Roger Vera
+ */
+import java.util.ArrayList;
 
 public class Mamifero extends Animal{
-	private static ArrayList<Mamifero> listado= new ArrayList<Mamifero>();
-	public static int caballos;
-	public static int leones;
-	private boolean pelaje;
-	private int patas;
+    private static ArrayList<Mamifero> listado = new ArrayList<Mamifero>();
+    public static int caballos,leones;
+    private boolean pelaje;
+    private int patas;
+    
+    //constructor
 
-	public Mamifero(String nombre, int edad, String habitat, String genero, boolean pelaje, int patas) {
-		super(nombre, edad, habitat, genero);
-		this.patas= patas;
-		this.pelaje= pelaje;
-		Mamifero.listado.add(this);
-	}
-	public Mamifero() {
-		Mamifero.listado.add(this);
-	}
-	 
-	
-	//metodos set 
-	public void setPatas(int patas){
-		this.patas= patas;
-	
-	}
-	
-	public void setPelaje(boolean pelaje){
-		this.pelaje= pelaje;
-	}
-	
-	public static void setListado(ArrayList<Mamifero> listado) {
-		Mamifero.listado = listado;
-	}
-	
-	public static void setCaballos(int caballos) {
-		Mamifero.caballos = caballos;
-	}
-	
-	public static void setLeones(int leones) {
-		Mamifero.leones = leones;
-	}
-	
-	//metodos get
-	public boolean getPelaje() {
-		return(this.pelaje);
-	}
-	
-	public int getPatas() {
-		return(this.patas);
-	}
-	
-	public static ArrayList<Mamifero> getListado() {
-		return (listado);
-	}
-	
-	public static int getCaballos() {
-		return(caballos);
-	}
-	
-	public static int getLeones() {
-		return(leones);
-	}
+    public Mamifero(String nombre, int edad, String habitat, String genero,boolean pelaje, int patas ) {
+        super(nombre, edad, habitat, genero);
+        this.pelaje = pelaje;
+        this.patas = patas;
+        listado.add(this);
+    }
+    //constructor vacio
+     public Mamifero() {
+        super(null, 0, null, null);
+        this.pelaje=false;
+        this.patas=0;
+        listado.add(this);
+    }
 
-	//metodos de la clase
-	
-	
-	public static Mamifero crearCaballos(String nombre, int edad, String genero) {
-		Mamifero caballo= new Mamifero(nombre, edad, "pradera", genero, true, 4 );
-		Mamifero.caballos+=1;
-		return(caballo);
-	
-	}
-	
-	public static int cantidadMamiferos() {
-		if(Mamifero.listado != null) {
-			return Mamifero.listado.size();
-		}
-		else {
-			return 0;
-			
-		}
-	}
-	
-	public static Mamifero crearLeon(String nombre, int edad, String genero) {
-		Mamifero leo = new Mamifero(nombre, edad, "selva", genero, true, 4);
-		Mamifero.leones+=1;
-		return(leo);
-	}
-	
-	
+    //getter & setter
+
+    public boolean isPelaje() {
+        return pelaje;
+    }
+
+    public void setPelaje(boolean pelaje) {
+        this.pelaje = pelaje;
+    }
+
+    public int getPatas() {
+        return patas;
+    }
+
+    public void setPatas(int patas) {
+        this.patas = patas;
+    }
+    
+     
+     
+    //metodos
+    public static int cantidadMamiferos() {
+        return listado.size();
+    }
+    public static Mamifero crearCaballo(String nombre, int edad, String genero){
+        caballos++;
+        return new Mamifero(nombre,edad,"pradera",genero,true,4);
+    }
+    
+    public static Mamifero crearLeon(String nombre, int edad, String genero){
+        leones++;
+        return new Mamifero(nombre,edad,"selva",genero,true,4);
+    }
 }
