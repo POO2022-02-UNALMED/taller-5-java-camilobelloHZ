@@ -26,14 +26,22 @@ public class Zoologico {
 	public void setubicacion(String ubic) {
 		this.ubicacion= ubic;
 	}
+	
+	public void setZonas(Zona zon) {
+		this.zonas.add(zon);
+	}
 	//get
 	
 	public String getNombre() {
-		return(this.nombre);
+		return nombre;
 	}
 	
 	public String getubicacion() {
-		return(this.ubicacion);
+		return ubicacion;
+	}
+	
+	public ArrayList<Zona> getZona() {
+		return zonas;
 	}
 	
 	//metodos 
@@ -44,11 +52,11 @@ public class Zoologico {
 			total += zonas.get(e).cantidadAnimales();
 		}
 		return(total);
-		}
+	}
 	
 	
 	public void agregarZonas(Zona zon) {
-		zonas.add(zon);
+		this.zonas.add(zon);
 	}
 }
 

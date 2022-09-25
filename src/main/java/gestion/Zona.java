@@ -5,13 +5,13 @@ import zooAnimales.Animal;
 public class Zona {
 	
 	private String nombre;
-	private ArrayList<Zoologico> zoo= new ArrayList<Zoologico>();
+	private static ArrayList<Zoologico> zoo= new ArrayList<Zoologico>();
 	private ArrayList<Animal> animales= new ArrayList<Animal>();
 
 
 	//contructores 
 	public Zona(String n, Zoologico z) {
-		this.zoo.add(z);
+		Zona.zoo.add(z);
 		this.nombre= n;
 	
 	}	
@@ -21,34 +21,41 @@ public class Zona {
 	
 	//metodos set 
 		
-	public void setnombre(String n) {
+	public void setNombre(String n) {
 		this.nombre= n;
-		
-
-	//jui
 	}
+		
+	public static void setZoo(Zoologico zoo) {
+		Zona.zoo.add(zoo);
+	}
+	
+	public void setAnimales(Animal animales) {
+		this.animales.add(animales);
+	}
+	
 
 	//metodos get 
 	
-	public String getnombre() {
+	public String getNombre() {
 		return(this.nombre);
 		
 	}
-	public ArrayList<Animal> getzonas(){
-		return(this.animales);
+	
+	public ArrayList<Animal> getAnimales() {
+		return animales;
 	}
 	
-	public Zoologico getzoo() {
-		return(zoo.get(0));
+	public static Zoologico getZoo() {
+		return Zona.zoo.get(0);
 		
 	}
 	
 	//metodos de la clase
 	public int cantidadAnimales() {
-		return(animales.size());
+		return getAnimales().size();
 	}	
 	public void agregarAnimales(Animal anim) {
-		animales.add(anim);
+		this.animales.add(anim);
 	}
 	
 
