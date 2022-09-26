@@ -1,8 +1,17 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package zooAnimales;
-import java.util.*;
+
+/**
+ *
+ * @author Roger Vera
+ */
+import java.util.ArrayList;
 
 public class Mamifero extends Animal{
-	private static ArrayList<Mamifero> listado = new ArrayList<Mamifero>();
+    private static ArrayList<Mamifero> listado = new ArrayList<Mamifero>();
     public static int caballos,leones;
     private boolean pelaje;
     private int patas;
@@ -57,6 +66,3 @@ public class Mamifero extends Animal{
         return new Mamifero(nombre,edad,"selva",genero,true,4);
     }
 }
-
-
-

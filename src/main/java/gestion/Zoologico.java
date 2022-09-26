@@ -1,60 +1,63 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package gestion;
-import java.util.*;
+
+/**
+ *
+ * @author Roger Vera
+ */
+import java.util.ArrayList;
 
 
 public class Zoologico {
-	private String nombre; 
-	private String ubicacion; 
-	private ArrayList<Zona> zonas = new ArrayList<Zona>(); 
-	
-	
-	
-	public Zoologico(String nom, String ubic) {
-		this.ubicacion = ubic;
-		this.nombre = nom;
-	}
+    private String nombre;
+    private String ubicacion;
+    private ArrayList<Zona> zonas = new ArrayList<Zona>();
 
-	public Zoologico() {
-		
-	}
-	
-	public void agregarZonas(Zona zona) {
-		this.zonas.add(zona);
-		
-	}
-	
-	public int cantidadTotalAnimales() {
-		int total=0;
-		for (int e=0;e<zonas.size();e=+1) {
-			total += zonas.get(e).cantidadAnimales();
-		}
-		return total; 
-		
-		
-	}
+    //constructor
+    public Zoologico(String nombre, String ubicacion) {
+        this.nombre = nombre;
+        this.ubicacion = ubicacion;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    //constructor vacio
+    public Zoologico(){}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    
+    //getter & setter
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+    public String getUbicacion() {
+        return ubicacion;
+    }
+    public void setUbicacion(String ubicacion) {
+        this.ubicacion = ubicacion;
+    }
 
-	public String getUbicacion() {
-		return ubicacion;
-	}
+    public ArrayList<Zona> getZona() {
+        return zonas;
+    }
+    public void setZona(ArrayList<Zona> zonas) {
+        this.zonas = zonas;
+    }
 
-	public void setUbicacion(String ubicacion) {
-		this.ubicacion = ubicacion;
-	}
-
-	public ArrayList<Zona> getZona() {
-		return zonas;
-	}
-
-	public void setZonas(Zona zonas) {
-		this.zonas.add(zonas); 
-	}
-
+    
+    //metodos
+    public void agregarZonas(Zona z){
+    this.zonas.add(z);
+    }
+    
+    public int cantidadTotalAnimales(){
+        int a=0;
+        for (Zona z:zonas){
+            a=a+z.cantidadAnimales();}
+        return a;
+    }
 }
