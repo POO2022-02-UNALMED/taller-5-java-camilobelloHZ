@@ -9,9 +9,9 @@ public class Zoologico {
 	
 	
 	
-	public Zoologico(String nom, String ubi) {
-		this.ubicacion = ubi;
-		this.nombre = nom;
+	public Zoologico(String nombre , String ubicacion) {
+		this.ubicacion = ubicacion;
+		this.nombre = nombre;
 	}
 
 	public Zoologico() {
